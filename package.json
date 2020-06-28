@@ -1,14 +1,14 @@
 {
-  "name": "antd-static-theme-generator",
-  "version": "1.0.0",
+  "name": "antd-custom-theme-generator",
+  "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "antd": "4.3.5"
+  "peerDependencies": {
+    "antd": "^4.3.5"
   },
-  "devDependencies": {
+  "dependencies": {
     "less": "3.11.3"
   },
-  "scripts": {
-    "create-theme": "npx lessc --js styles/custom-theme.less styles/custom-theme.css"
+  "bin": {
+    "generate-antd-custom-theme": "./index.js"
   }
 }
