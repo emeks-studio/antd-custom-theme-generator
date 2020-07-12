@@ -14,14 +14,14 @@ This project works with `Antd Design v4.3.5` and aims to simplify the customizat
 
     - Option A: Without installing this plugin
       ```sh
-      $ npx antd-custom-theme-generator generate-antd-custom-theme
+      $ npx @emeks/antd-custom-theme-generator generate-antd-custom-theme
       
       output > ./custom-theme.css
       ```
 
     - Option B: Installing the package as a dev dependency
       ```sh
-      $ npm -i -E --save-dev antd-custom-theme-generator
+      $ npm -i -E --save-dev @emeks/antd-custom-theme-generator
       ```
     
       Then generates your custom theme: 
