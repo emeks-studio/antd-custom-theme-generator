@@ -10,5 +10,8 @@
   },
   "bin": {
     "generate-antd-custom-theme": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\""
   }
 }
