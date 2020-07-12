@@ -1,7 +1,6 @@
 {
-  "name": "antd-custom-theme-generator",
+  "name": "@emeks/antd-custom-theme-generator",
   "version": "0.1.0",
-  "private": true,
   "peerDependencies": {
     "antd": "^4.3.5"
   },
@@ -9,9 +8,27 @@
     "less": "3.11.3"
   },
   "bin": {
-    "generate-antd-custom-theme": "./index.js"
+    "generate-antd-custom-theme": "index.js"
   },
   "scripts": {
     "test": "echo \"No test specified\""
-  }
+  },
+  "description": "[Ant Design](https://ant.design/) provides plenty of UI components, styled with [less](http://lesscss.org/). You can customize the default theme modifying less variable, to achive this you have multiple ways ([check the doc here](https://ant.design/docs/react/customize-theme)). The problem is that you don't have a simple way to create a static `css` file with zero configuration.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emeks-studio/antd-custom-theme-generator.git"
+  },
+  "keywords": [
+    "javascript",
+    "react",
+    "antd"
+  ],
+  "author": "granujas",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/emeks-studio/antd-custom-theme-generator/issues"
+  },
+  "homepage": "https://github.com/emeks-studio/antd-custom-theme-generator#readme"
 }
