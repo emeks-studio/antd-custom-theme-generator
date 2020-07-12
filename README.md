@@ -73,6 +73,4 @@ $ generate-antd-custom-theme
 
 ## TODO List:
 
-- [ ] Transform this in a github gist
-- [ ] Publish in npm (optional)
 - [ ] Add hot-reload generation
