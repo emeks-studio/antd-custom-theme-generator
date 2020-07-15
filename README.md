@@ -10,11 +10,11 @@ This project works with `Antd Design v4.3.5` and aims to simplify the customizat
 
 1. Create your own custom theme with the variables that you want to override, in a file called `./custom-theme.less`.
 
-2. Run this command to obtain a `css` file with your custom plugin:
+2. Run this command to obtain a `css` file with your custom theme:
 
     - Option A: Without installing this plugin
       ```sh
-      $ npx @emeks/antd-custom-theme-generator generate-antd-custom-theme
+      $ npx @emeks/antd-custom-theme-generator generate-theme
       
       output > ./custom-theme.css
       ```
@@ -26,7 +26,7 @@ This project works with `Antd Design v4.3.5` and aims to simplify the customizat
     
       Then generates your custom theme: 
       ```sh
-      $ generate-antd-custom-theme
+      $ generate-theme
       
       output > ./custom-theme.css
       ```
@@ -47,7 +47,7 @@ Q3: Is there a way of changing command defaults?
 
 > Sure, by using the command like this way:
 >  ```sh
->  $ generate-antd-custom-theme [customThemeFilePath] [generatedThemeFilePath] [antdLibraryPath]
+>  $ generate-theme [customThemeFilePath] [generatedThemeFilePath] [antdLibraryPath]
 >  ```
 >  
 >  Default values:
@@ -68,7 +68,7 @@ $ npm link
 Then in another project with antd already installed and with a `custom-theme.less` file created, execute:
 
 ```sh
-$ generate-antd-custom-theme
+$ generate-theme
 ```
 
 ## TODO List:
