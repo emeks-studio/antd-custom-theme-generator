@@ -18,14 +18,14 @@ const scriptVariables = {
 console.log('Script variables');
 console.log(scriptVariables);
 
-const newThemContent = `
+const content = `
   @import url("${scriptVariables.antdLibraryPath}/lib/style/themes/default.less");
   @import url("${scriptVariables.antdLibraryPath}/dist/antd.less");
   @import url("${scriptVariables.customThemeFilePath}");
 `;
-console.debug('About to generate "/tmp/generated-theme.less" tmp file:', newThemContent)
+console.debug('About to generate "/tmp/generated-theme.less" tmp file:', content)
 
-exec(`echo "${newThemContent}" > /tmp/generated-theme.less`, { cwd: process.cwd() }, (error1, stdout, stderr) => {
+exec(`echo "${content}" > /tmp/generated-theme.less`, { cwd: process.cwd() }, (error1, stdout, stderr) => {
   if(!error1) {
     console.debug(`Dynamic generation: "/tmp/generated-theme.less" tmp file was successfully generated`);
     exec(
