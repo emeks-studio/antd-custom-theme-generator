@@ -2,14 +2,21 @@
 const { exec } = require('child_process');
 const path = require('path');
 
-console.log('Initial params:', process.argv, process.cwd(), __dirname);
+const scriptParams = {
+  'process.argv': process.argv,
+  'process.cwd()': process.cwd(),
+  '__dirname': __dirname
+};
+console.debug('Script params');
+console.debug(scriptParams);
 
 const scriptVariables = {
   customThemeFilePath: path.join(process.cwd(), process.argv[2] || './custom-theme.less'),
   generatedThemeFilePath: path.join(process.cwd(), process.argv[3] || './custom-theme.css'),
   antdLibraryPath: path.join(process.cwd(), process.argv[4] || './node_modules/antd')
 };
-console.log('Script variables:', scriptVariables);
+console.log('Script variables');
+console.log(scriptVariables);
 
 const newThemContent = `
   @import url("${scriptVariables.antdLibraryPath}/lib/style/themes/default.less");
