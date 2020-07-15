@@ -1,5 +1,7 @@
 # Antd custom theme generator
 
+A simple way to create an antd theme css file with zero configuration.
+
 [Ant Design](https://ant.design/) provides plenty of UI components, styled with [less](http://lesscss.org/). You can customize the default theme modifying less variable, to achive this you have multiple ways ([check the doc here](https://ant.design/docs/react/customize-theme)). The problem is that you don't have a simple way to create a static `css` file with zero configuration.
 
 This project works with `Antd Design v4.3.5` and aims to simplify the customization of your theme if you don't want to install dependencies, configurate things like `less` or eject your [React](reactjs.org) project.
