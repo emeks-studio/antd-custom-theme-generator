@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const { exec } = require('child_process');
 const path = require('path');
-const debug = process.argv[2] === 'verbose';
+const debug = process.argv[2] !== '';
 
 const scriptParams = {
   'process.argv': process.argv,
