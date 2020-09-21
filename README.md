@@ -49,13 +49,14 @@ Q3: Is there a way of changing command defaults?
 
 > Sure, by using the command like this way:
 >  ```sh
->  $ generate-theme [customThemeFilePath] [generatedThemeFilePath] [antdLibraryPath]
+>  $ generate-theme [verbose] [customThemeFilePath] [generatedThemeFilePath] [antdLibraryPath]
 >  ```
 >  
 >  Default values:
 >  - customThemeFilePath = "./custom-theme.less"
 >  - generatedThemeFilePath = "./custom-theme.css"
 >  - antdLibraryPath = "./node_modules/antd"
+>  - verbose = ""
 >
 >  ^ Notice that all these paths must be defined relative to your project root path.
 
