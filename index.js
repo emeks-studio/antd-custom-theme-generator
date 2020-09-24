@@ -39,10 +39,12 @@ const content = `
   @import url("${scriptVariables.antdLibraryPath}/dist/antd.less");
   @import url("${scriptVariables.customThemeFilePath}");
 `;
-console.debug(
-  'About to generate "/tmp/generated-theme.less" tmp file:',
-  content
-);
+if (verbose) {
+  console.debug(
+    'About to generate "/tmp/generated-theme.less" tmp file:',
+    content
+  );
+}
 
 exec(
   `echo "${content}" > /tmp/generated-theme.less`,
