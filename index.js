@@ -8,7 +8,7 @@ const scriptParams = {
   "process.cwd()": process.cwd(),
   __dirname: __dirname,
 };
-if (debug) {
+if (verbose) {
   console.debug("Script params");
   console.debug(scriptParams);
 }
@@ -29,7 +29,7 @@ const scriptVariables = {
   ),
 };
 
-if (debug) {
+if (verbose) {
   console.log("Script variables");
   console.log(scriptVariables);
 }
@@ -49,7 +49,7 @@ exec(
   { cwd: process.cwd() },
   (error1, stdout, stderr) => {
     if (!error1) {
-      if (debug) {
+      if (verbose) {
         console.debug(
           `Dynamic generation: "/tmp/generated-theme.less" tmp file was successfully generated`
         );
@@ -59,7 +59,7 @@ exec(
         { cwd: __dirname },
         (error2, stdout, stderr) => {
           if (!error2) {
-            if (debug) {
+            if (verbose) {
               console.log(
                 `Finally: "${scriptVariables.generatedThemeFilePath}" was successfully generated`
               );
