@@ -27,15 +27,19 @@ const scriptVariables = {
     process.cwd(),
     process.argv[initialPosition + 2] || "./node_modules/antd"
   ),
+  theme: path.join(
+    process.cwd(),
+    process.argv[initialPosition + 3] || "default"
+  ),
 };
 
 if (verbose) {
-  console.log("Script variables");
-  console.log(scriptVariables);
+  console.debug("Script variables");
+  console.debug(scriptVariables);
 }
 
 const content = `
-  @import url("${scriptVariables.antdLibraryPath}/lib/style/themes/default.less");
+  @import url("${scriptVariables.antdLibraryPath}/lib/style/themes/${scriptVariables.theme}.less");
   @import url("${scriptVariables.antdLibraryPath}/dist/antd.less");
   @import url("${scriptVariables.customThemeFilePath}");
 `;
@@ -62,7 +66,7 @@ exec(
         (error2, stdout, stderr) => {
           if (!error2) {
             if (verbose) {
-              console.log(
+              console.debug(
                 `Finally: "${scriptVariables.generatedThemeFilePath}" was successfully generated`
               );
             } else {
