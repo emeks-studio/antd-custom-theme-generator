@@ -4,7 +4,7 @@ A simple way to create an antd theme css file with zero configuration.
 
 [Ant Design](https://ant.design/) provides plenty of UI components, styled with [less](http://lesscss.org/). You can customize the default theme modifying less variable, to achive this you have multiple ways ([check the doc here](https://ant.design/docs/react/customize-theme)). The problem is that you don't have a simple way to create a static `css` file with zero configuration.
 
-This project works with `Antd Design v4.3.5` and aims to simplify the customization of your theme if you don't want to install dependencies, configurate things like `less` or eject your [React](reactjs.org) project.
+This project works with `Antd Design v4.6.6` and aims to simplify the customization of your theme if you don't want to install dependencies, configurate things like `less` or eject your [React](reactjs.org) project.
 
 ## Usage
 
@@ -44,6 +44,8 @@ Q1: Which variables can I override?
 
 > The variables that are exposed by antd in this file: https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 
+> Also, you could use `[theme]` parameter in order to target to a different theme such as `dark` or `compact` (To check all available options, please inspect this folder: https://github.com/ant-design/ant-design/tree/master/components/style/themes).
+
 Q2: Should I run this command every time i change my `custom-theme.less` file?
 
 > Yes, we don't provide hot-reload yet.
@@ -62,6 +64,7 @@ Q3: Is there a way of changing command defaults?
 > - customThemeFilePath = "./custom-theme.less"
 > - generatedThemeFilePath = "./custom-theme.css"
 > - antdLibraryPath = "./node_modules/antd"
+> - theme = "default"
 >
 > ^ Notice that all these paths must be defined relative to your project root path.
 
