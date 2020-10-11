@@ -64,7 +64,7 @@ Q3: Is there a way of changing command defaults?
 > - customThemeFilePath = "./custom-theme.less"
 > - generatedThemeFilePath = "./custom-theme.css"
 > - antdLibraryPath = "./node_modules/antd"
-> - theme = "defualt" You can use dark or compact
+> - theme = "default"
 >
 > ^ Notice that all these paths must be defined relative to your project root path.
 
