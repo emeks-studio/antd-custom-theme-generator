@@ -44,7 +44,7 @@ Q1: Which variables can I override?
 
 > The variables that are exposed by antd in this file: https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 
-`You Can Change with theme Parametr`
+> Also, you could use `[theme]` parameter in order to target to a different theme such as `dark` or `compact` (To check all available options, please inspect this folder: https://github.com/ant-design/ant-design/tree/master/components/style/themes).
 
 Q2: Should I run this command every time i change my `custom-theme.less` file?
 
@@ -64,7 +64,7 @@ Q3: Is there a way of changing command defaults?
 > - customThemeFilePath = "./custom-theme.less"
 > - generatedThemeFilePath = "./custom-theme.css"
 > - antdLibraryPath = "./node_modules/antd"
-> - theme = "defualt" You can use dark or compact
+> - theme = "default"
 >
 > ^ Notice that all these paths must be defined relative to your project root path.
 
