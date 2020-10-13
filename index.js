@@ -27,10 +27,7 @@ const scriptVariables = {
     process.cwd(),
     process.argv[initialPosition + 2] || "./node_modules/antd"
   ),
-  theme: path.join(
-    process.cwd(),
-    process.argv[initialPosition + 3] || "default"
-  ),
+  theme: process.argv[initialPosition + 3] || "default",
 };
 
 if (verbose) {
