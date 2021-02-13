@@ -51,6 +51,9 @@ This project was created with `Antd Design v4.6.6` and aims to simplify the cust
 > **Notes**:
 >
 > - The order of the options is important.
+  ```sh
+  $ npx @emeks/antd-custom-theme-generator [verbose] [customThemeFilePath] [generatedThemeFilePath] [antdLibraryPath]
+  ```
 > - Notice that all these paths must be defined relative to your project root path.
 
 ### Examples
