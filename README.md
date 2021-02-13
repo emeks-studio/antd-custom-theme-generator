@@ -52,7 +52,7 @@ This project was created with `Antd Design v4.6.6` and aims to simplify the cust
 >
 > - The order of the options is important.
 >  ```sh
->  $ generate-theme [verbose] [customThemeFilePath] [generatedThemeFilePath] [antdLibraryPath]
+>  $ generate-theme [verbose] [customThemeFilePath] [generatedThemeFilePath] [antdLibraryPath] [theme]
 >  ```
 > - Notice that all these paths must be defined relative to your project root path.
 
