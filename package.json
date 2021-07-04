@@ -6,7 +6,8 @@
   },
   "dependencies": {
     "less": "3.11.3",
-    "minimist": "1.2.5"
+    "minimist": "1.2.5",
+    "node-watch": "0.7.1"
   },
   "bin": {
     "generate-theme": "index.js"
