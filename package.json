@@ -5,7 +5,8 @@
     "antd": "^4.3.5"
   },
   "dependencies": {
-    "less": "3.11.3"
+    "less": "3.11.3",
+    "minimist": "1.2.5"
   },
   "bin": {
     "generate-theme": "index.js"
