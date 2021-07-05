@@ -27,12 +27,12 @@ verbose && console.debug(`Verbose::
 \x1b[34m[Params]\x1b[0m
   Args:
     verbose: ${argv["verbose"] || ''}
+    watch: ${argv["watch"] || ''}
     antd: ${argv['antd'] || ''}
     theme: ${argv['theme'] || ''}
     in: ${argv._[0] || ''}
     out: ${argv._[1] || ''}
   CWD: ${process.cwd()}
-  __dirname: ${__dirname}
 
 \x1b[34m[Vars]\x1b[0m
   customTheme: ${inFilePath}
@@ -70,7 +70,7 @@ if(shouldWatch){
     compile();
   });
   const closeWatcher = () => {
-    console.log('Wathcer:: Removing watcher...');
+    console.log('Watcher:: Removing watcher...');
     watcher.close();
   };
   process.on('SIGTERM', closeWatcher);
