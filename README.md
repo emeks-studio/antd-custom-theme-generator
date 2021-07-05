@@ -84,7 +84,3 @@ No, you could pass the `-w` argument to let the script observe `<customThemeFile
   ```sh
   $ generate-theme
   ```
-
-## TODO List:
-
-- [x] Add hot-reload generation.
