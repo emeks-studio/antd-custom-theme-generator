@@ -1,83 +1,60 @@
 #!/usr/bin/env node
-const { exec } = require("child_process");
-const path = require("path");
-const verbose = process.argv[2] === "verbose";
+const fs = require("fs");
+const less = require("less");
+const argv = require("minimist")(
+  process.argv.slice(2),
+  {alias: {"verbose": ["v"]}}
+);
 
-const scriptParams = {
-  "process.argv": process.argv,
-  "process.cwd()": process.cwd(),
-  __dirname: __dirname,
-};
-if (verbose) {
-  console.debug("Script params");
-  console.debug(scriptParams);
-}
-
-const initialPosition = verbose ? 3 : 2;
-const scriptVariables = {
-  customThemeFilePath: path.join(
-    process.cwd(),
-    process.argv[initialPosition] || "./custom-theme.less"
-  ),
-  generatedThemeFilePath: path.join(
-    process.cwd(),
-    process.argv[initialPosition + 1] || "./custom-theme.css"
-  ),
-  antdLibraryPath: path.join(
-    process.cwd(),
-    process.argv[initialPosition + 2] || "./node_modules/antd"
-  ),
-  theme: process.argv[initialPosition + 3] || "default",
+const DEFAULTS = {
+  verbose: false,
+  in: "./custom-theme.less",
+  out: "./custom-theme.css",
+  antd: "./node_modules/antd",
+  theme: "default"
 };
 
-if (verbose) {
-  console.debug("Script variables");
-  console.debug(scriptVariables);
-}
+const verbose = argv["verbose"] || DEFAULTS.verbose;
+const inFilePath = argv._[0] || DEFAULTS.in;
+const outFilePath = argv._[1] || DEFAULTS.out;
+const antdLibPath = argv["antd"] || DEFAULTS.antd;
+const theme = argv["theme"] || DEFAULTS.theme;
 
-const content = `
-  @import url("${scriptVariables.antdLibraryPath}/lib/style/themes/${scriptVariables.theme}.less");
-  @import url("${scriptVariables.antdLibraryPath}/dist/antd.less");
-  @import url("${scriptVariables.customThemeFilePath}");
-`;
-if (verbose) {
-  console.debug(
-    'About to generate "/tmp/generated-theme.less" tmp file:',
-    content
-  );
-}
+verbose && console.debug(`
+\x1b[34m[Params]\x1b[0m
+  Args:
+    verbose: ${argv["verbose"] || ''}
+    antd: ${argv['antd'] || ''}
+    theme: ${argv['theme'] || ''}
+    in: ${argv._[0] || ''}
+    out: ${argv._[1] || ''}
+  CWD: ${process.cwd()}
+  __dirname: ${__dirname}
 
-exec(
-  `echo "${content}" > /tmp/generated-theme.less`,
-  { cwd: process.cwd() },
-  (error1, stdout, stderr) => {
-    if (!error1) {
-      if (verbose) {
-        console.debug(
-          `Dynamic generation: "/tmp/generated-theme.less" tmp file was successfully generated`
-        );
-      }
-      exec(
-        `node_modules/less/bin/lessc --js /tmp/generated-theme.less ${scriptVariables.generatedThemeFilePath}`,
-        { cwd: __dirname },
-        (error2, stdout, stderr) => {
-          if (!error2) {
-            if (verbose) {
-              console.debug(
-                `Finally: "${scriptVariables.generatedThemeFilePath}" was successfully generated`
-              );
-            } else {
-              console.debug(
-                `AntDesign file (${scriptVariables.generatedThemeFilePath}) was successfully generated`
-              );
-            }
-          } else {
-            console.error(error2);
-          }
-        }
-      );
-    } else {
-      console.error(error1);
+\x1b[34m[Vars]\x1b[0m
+  customTheme: ${inFilePath}
+  generatedTheme: ${outFilePath}
+  antdLib: ${antdLibPath}
+  theme: ${theme}
+
+Generating theme...
+`);
+
+const imports = [
+  `@import url('${antdLibPath}/lib/style/themes/${theme}.less');`,
+  `@import url('${antdLibPath}/dist/antd.less');`,
+  `@import url('${inFilePath}');`
+].join('');
+
+less.render(imports, {javascriptEnabled: true})
+.then(
+  ({css}) => {
+    try {
+      fs.writeFileSync(outFilePath, css);
+      console.log(`AntDesign theme (${outFilePath}) successfully generated.`);
+    } catch(e) {
+      console.error(`Could not write into file (${outFilePath}):`, e);
     }
-  }
+  },
+  (error) => console.error(error)
 );
