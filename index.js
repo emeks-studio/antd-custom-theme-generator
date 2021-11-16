@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const less = require("less");
-const watch = require('node-watch');
+const watch = require("node-watch");
 const argv = require("minimist")(
   process.argv.slice(2),
-  {alias: {"verbose": ["v"], "watch": ['w']}}
+  {
+    string: ['antd', 'theme'],
+    boolean: ["verbose", "watch"],
+    alias: {"verbose": ["v"], "watch": ["w"]},
+  }
 );
 
 const DEFAULTS = {
@@ -28,8 +32,8 @@ verbose && console.debug(`Verbose::
   Args:
     verbose: ${argv["verbose"] || ''}
     watch: ${argv["watch"] || ''}
-    antd: ${argv['antd'] || ''}
-    theme: ${argv['theme'] || ''}
+    antd: ${argv["antd"] || ''}
+    theme: ${argv["theme"] || ''}
     in: ${argv._[0] || ''}
     out: ${argv._[1] || ''}
   CWD: ${process.cwd()}
@@ -48,7 +52,7 @@ const imports = [
 ].join('');
 
 const compile = () => {
-  console.log('Generating theme...');
+  console.log("Generating theme...");
   less.render(imports, {javascriptEnabled: true})
   .then(
     ({css}) => {

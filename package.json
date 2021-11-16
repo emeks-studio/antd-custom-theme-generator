@@ -1,6 +1,6 @@
 {
   "name": "@emeks/antd-custom-theme-generator",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "peerDependencies": {
     "antd": "^4.3.5"
   },
