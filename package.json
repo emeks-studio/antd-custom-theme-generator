@@ -2,12 +2,12 @@
   "name": "@emeks/antd-custom-theme-generator",
   "version": "0.2.1",
   "peerDependencies": {
-    "antd": "^4.3.5"
+    "antd": "^4.19.5"
   },
   "dependencies": {
-    "less": "3.11.3",
-    "minimist": "1.2.5",
-    "node-watch": "0.7.1"
+    "less": "4.1.2",
+    "minimist": "1.2.6",
+    "node-watch": "0.7.3"
   },
   "bin": {
     "generate-theme": "index.js"
